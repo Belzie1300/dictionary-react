@@ -5,18 +5,22 @@ export default function Meanings(props) {
   console.log(props.meanings);
   if (props.meanings) {
     return (
-      <div>
-        <strong>{props.meanings.partOfSpeech}</strong>
-        {props.meanings.definitions.map(function (definition, index) {
-          return (
-            <div key={index}>
-              {definition.definition}
-              <br />
-              <em>{definition.example}</em>
-              <Synonyms synonyms={props.meanings.synonyms} />
-            </div>
-          );
-        })}
+      <div className="Meanings">
+        <section>
+          <strong>{props.meanings.partOfSpeech}</strong>
+          {props.meanings.definitions.map(function (definition, index) {
+            return (
+              <div key={index}>
+                <div className="definition">{definition.definition}</div>
+                <div className="example">{definition.example}</div>
+                <br />
+              </div>
+            );
+          })}
+          <div>
+            <Synonyms synonyms={props.meanings.synonyms} />
+          </div>
+        </section>
       </div>
     );
   } else {

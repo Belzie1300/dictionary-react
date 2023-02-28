@@ -4,11 +4,12 @@ import Audio from "./Audio.js";
 export default function Phonetics(props) {
   console.log(props.phonetics);
   return (
-    <div>
+    <div className="Phonetics">
       {props.phonetics.map(function (phonetics, index) {
         return (
           <div key={index}>
-            {phonetics.text} <Audio audio={phonetics.audio} />
+            <Audio audio={phonetics.audio} />
+            <span className="text">{phonetics.text}</span>
           </div>
         );
       })}
